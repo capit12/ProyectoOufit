@@ -31,39 +31,80 @@ public class Prenda implements Serializable {
         this.tipoClimaIdeal = tipoClimaIdeal;
     }
 
-    public int getIdPrenda() { return idPrenda; }
-    public void setIdPrenda(int idPrenda) { this.idPrenda = idPrenda; }
+    //GETEERS Y SETTERS
+    public int getIdPrenda() {
+        return idPrenda;
+    }
+    public void setIdPrenda(int idPrenda) {
+        this.idPrenda = idPrenda;
+    }
 
-    public String getNombre() { return nombre; }
+    public String getNombre() {
+        return nombre;
+    }
     public void setNombre(String nombre) {
-        if(Validador.validarCaracteres(nombre)) this.nombre = nombre;
+
+        if(Validador.validarCaracteres(nombre)) {
+            this.nombre = nombre;
+        }
     }
 
-    public String getColor() { return color; }
+    public String getColor() {
+        return color;
+    }
     public void setColor(String color) {
-        if(Validador.validarCaracteres(color)) this.color = color;
+        if(Validador.validarCaracteres(color)) {
+            this.color = color;
+        }
     }
 
-    public boolean isDisponibleLimpia() { return disponibleLimpia; }
-    public void setDisponibleLimpia(boolean disponibleLimpia) { this.disponibleLimpia = disponibleLimpia; }
+    public boolean isDisponibleLimpia() {
+        return disponibleLimpia;
+    }
+    public void setDisponibleLimpia(boolean disponibleLimpia) {
+        this.disponibleLimpia = disponibleLimpia;
+    }
 
-    public String getOcasionUso() { return ocasionUso; }
+    public String getOcasionUso() {
+        return ocasionUso;
+    }
     public void setOcasionUso(String ocasionUso) {
-        if(Validador.validarOcasion(ocasionUso)) this.ocasionUso = ocasionUso;
+        if(Validador.validarOcasion(ocasionUso)) {
+            this.ocasionUso = ocasionUso;
+        }
     }
 
-    public String getTipoClimaIdeal() { return tipoClimaIdeal; }
+    public String getTipoClimaIdeal() {
+        return tipoClimaIdeal;
+    }
     public void setTipoClimaIdeal(String tipoClimaIdeal) {
-        if(Validador.validarClimaIdeal(tipoClimaIdeal)) this.tipoClimaIdeal = tipoClimaIdeal;
+        if(Validador.validarClimaIdeal(tipoClimaIdeal)) {
+            this.tipoClimaIdeal = tipoClimaIdeal;
+        }
     }
 
-    public ClasificacionPrenda getClasificacion() { return clasificacion; }
-    public void setClasificacion(ClasificacionPrenda clasificacion) { this.clasificacion = clasificacion; }
+    public ClasificacionPrenda getClasificacion() {
+        return clasificacion;
+    }
+    public void setClasificacion(ClasificacionPrenda clasificacion) {
+        this.clasificacion = clasificacion;
+    }
 
-    public FotoPrenda getFoto() { return foto; }
-    public void setFoto(FotoPrenda foto) { this.foto = foto; }
+    public FotoPrenda getFoto() {
+        return foto;
+    }
+    public void setFoto(FotoPrenda foto) {
+        this.foto = foto;
+    }
 
-    public void crearPrenda() { System.out.println("[RESULTADO]: Prenda registrada en el clóset virtual."); }
-    public void actualizarPrenda() { System.out.println("[RESULTADO]: Estado de la prenda modificado."); }
-    public void eliminarPrenda() { System.out.println("[RESULTADO]: Prenda removida permanentemente."); }
+    //METODOS
+    public void crearPrenda() {
+        System.out.println("[RESULTADO]: Prenda registrada en el clóset virtual.");
+    }
+    public void actualizarPrenda() {
+        System.out.println("[RESULTADO]: Estado de la prenda modificado.");
+    }
+    public void eliminarPrenda() {
+        System.out.println("[RESULTADO]: Prenda removida permanentemente.");
+    }
 }

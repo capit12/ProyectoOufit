@@ -24,15 +24,27 @@ public class Usuario {
         this.contrasenia = contrasenia;
     }
 
-    public int getIdUsuario() { return idUsuario; }
-    public void setIdUsuario(int idUsuario) { this.idUsuario = idUsuario; }
-
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) {
-        if(Validador.validarCaracteres(nombre)) this.nombre = nombre;
+    //GETEERS Y SETTERS
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
-    public String getCorreo() { return correo; }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+
+        if(Validador.validarCaracteres(nombre)) {
+            this.nombre = nombre;
+        }
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
     public void setCorreo(String correo) {
         if(Validador.validarCorreo(correo)) {
             this.correo = correo;
@@ -41,15 +53,30 @@ public class Usuario {
         }
     }
 
-    public String getContrasenia() { return contrasenia; }
+    public String getContrasenia() {
+        return contrasenia;
+    }
     public void setContrasenia(String contrasenia) {
-        if(Validador.validarContrasenia(contrasenia)) this.contrasenia = contrasenia;
+        if(Validador.validarContrasenia(contrasenia)) {
+            this.contrasenia = contrasenia;
+        }
     }
 
-    public PerfilUsuario getPerfil() { return perfil; }
-    public void setPerfil(PerfilUsuario perfil) { this.perfil = perfil; }
+    public PerfilUsuario getPerfil() {
+        return perfil;
+    }
+    public void setPerfil(PerfilUsuario perfil) {
+        this.perfil = perfil;
+    }
 
-    public void crearCuenta() { System.out.println("[RESULTADO]: Cuenta de usuario guardada."); }
-    public boolean iniciarSesion() { return true; }
-    public void eliminarCuenta() { System.out.println("[RESULTADO]: Cuenta eliminada del sistema."); }
+    //METODOS
+    public void crearCuenta() {
+        System.out.println("[RESULTADO]: Cuenta de usuario guardada.");
+    }
+    public boolean iniciarSesion() {
+        return true;
+    }
+    public void eliminarCuenta() {
+        System.out.println("[RESULTADO]: Cuenta eliminada del sistema.");
+    }
 }

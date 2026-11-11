@@ -19,18 +19,30 @@ public class ClasificacionPrenda implements Serializable {
         this.categoria = categoria;
         this.subcategoria = subcategoria;
     }
-
-    public int getIdClasificacion() { return idClasificacion; }
-    public void setIdClasificacion(int idClasificacion) { this.idClasificacion = idClasificacion; }
-
-    public String getCategoria() { return categoria; }
-    public void setCategoria(String categoria) {
-        if (Validador.validarCaracteres(categoria)) this.categoria = categoria;
+    //GETTERS Y SETTERS
+    public int getIdClasificacion() {
+        return idClasificacion;
+    }
+    public void setIdClasificacion(int idClasificacion) {
+        this.idClasificacion = idClasificacion;
     }
 
-    public String getSubcategoria() { return subcategoria; }
+    public String getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(String categoria) {
+        if (Validador.validarCaracteres(categoria)) {
+            this.categoria = categoria;
+        }
+    }
+
+    public String getSubcategoria() {
+        return subcategoria;
+    }
     public void setSubcategoria(String subcategoria) {
-        if (Validador.validarCaracteres(subcategoria)) this.subcategoria = subcategoria;
+        if (Validador.validarCaracteres(subcategoria)) {
+            this.subcategoria = subcategoria;
+        }
     }
 
     @Override

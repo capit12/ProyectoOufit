@@ -22,25 +22,48 @@ public class Actividad {
         this.tipoOcasion = tipoOcasion;
     }
 
-    public int getIdActividad() { return idActividad; }
-    public void setIdActividad(int idActividad) { this.idActividad = idActividad; }
+    //GETTERS Y SETTERS
+    public int getIdActividad() {
+        return idActividad;
+    }
+    public void setIdActividad(int idActividad) {
+        this.idActividad = idActividad;
+    }
 
-    public String getNombreActividad() { return nombreActividad; }
+    public String getNombreActividad() {
+        return nombreActividad;
+    }
     public void setNombreActividad(String nombreActividad) {
-        if(Validador.validarCaracteres(nombreActividad)) this.nombreActividad = nombreActividad;
+        if(Validador.validarCaracteres(nombreActividad)) {
+            this.nombreActividad = nombreActividad;
+        }
     }
 
     public String getFechaHora() { return fechaHora; }
     public void setFechaHora(String fechaHora) {
-        if(Validador.validarFechaHora(fechaHora)) this.fechaHora = fechaHora;
+
+        if(Validador.validarFechaHora(fechaHora)) {
+            this.fechaHora = fechaHora;
+        }
     }
 
-    public String getTipoOcasion() { return tipoOcasion; }
+    public String getTipoOcasion() {
+        return tipoOcasion;
+    }
     public void setTipoOcasion(String tipoOcasion) {
-        if(Validador.validarOcasion(tipoOcasion)) this.tipoOcasion = tipoOcasion;
+        if(Validador.validarOcasion(tipoOcasion)) {
+            this.tipoOcasion = tipoOcasion;
+        }
     }
 
-    public void registrarActividad() { System.out.println("[RESULTADO]: Actividad agregada a la agenda."); }
-    public void modificarActividad() { System.out.println("[RESULTADO]: Datos de la actividad editados."); }
-    public void eliminarActividad() { System.out.println("[RESULTADO]: Actividad removida de la agenda."); }
+    //METODOS
+    public void registrarActividad() {
+        System.out.println("[RESULTADO]: Actividad agregada a la agenda.");
+    }
+    public void modificarActividad() {
+        System.out.println("[RESULTADO]: Datos de la actividad editados.");
+    }
+    public void eliminarActividad() {
+        System.out.println("[RESULTADO]: Actividad removida de la agenda.");
+    }
 }

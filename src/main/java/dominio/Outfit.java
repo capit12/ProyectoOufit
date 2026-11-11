@@ -16,17 +16,37 @@ public class Outfit {
         this.diaSemana = diaSemana;
         this.valoracion = valoracion;
     }
+    //GETTERS Y SETTERS
+    public int getIdOutfit() {
+        return idOutfit;
+    }
+    public void setIdOutfit(int idOutfit) {
+        this.idOutfit = idOutfit;
+    }
 
-    public int getIdOutfit() { return idOutfit; }
-    public void setIdOutfit(int idOutfit) { this.idOutfit = idOutfit; }
+    public String getDiaSemana() {
+        return diaSemana;
+    }
+    public void setDiaSemana(String diaSemana) {
+        this.diaSemana = diaSemana;
+    }
 
-    public String getDiaSemana() { return diaSemana; }
-    public void setDiaSemana(String diaSemana) { this.diaSemana = diaSemana; }
+    public int getValoracion() {
+        return valoracion;
+    }
+    public void setValoracion(int valoracion) {
+        this.valoracion = valoracion;
+    }
 
-    public int getValoracion() { return valoracion; }
-    public void setValoracion(int valoracion) { this.valoracion = valoracion; }
-
-    public void generarOutfitSemanal() { System.out.println("[RESULTADO]: Combinación semanal de outfits procesada."); }
-    public void modificarSugerencia() { System.out.println("[RESULTADO]: Alternativa de vestimenta asignada."); }
-    public void valorarOutfit(int puntos) { this.valoracion = puntos; System.out.println("[RESULTADO]: Puntuación de " + puntos + " estrellas guardada."); }
+    //METODOS
+    public void generarOutfitSemanal() {
+        System.out.println("[RESULTADO]: Combinación semanal de outfits procesada.");
+    }
+    public void modificarSugerencia() {
+        System.out.println("[RESULTADO]: Alternativa de vestimenta asignada.");
+    }
+    public void valorarOutfit(int puntos) {
+        this.valoracion = puntos;
+        System.out.println("[RESULTADO]: Puntuación de " + puntos + " estrellas guardada.");
+    }
 }

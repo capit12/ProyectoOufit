@@ -1,32 +1,129 @@
 package test;
 
+import org.junit.jupiter.api.Test;
 import util.Validador;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestValidador {
-    private void comprobar(String descripcion, boolean obtenido, boolean esperado) {
-        System.out.println((obtenido == esperado ? "[OK]    " : "[FALLA] ") + descripcion + " -> " + obtenido);
+
+    // Tests de Textos Generales y Correos
+    @Test
+    public void testValidarCorreo() {
+        assertTrue(Validador.validarCorreo("jcuzco@uce.edu.ec"));
+        assertFalse(Validador.validarCorreo("sin-arroba"));
+        assertFalse(Validador.validarCorreo(null));
     }
 
-    public void probarClase() {
-        System.out.println("[EJECUTANDO CÓDIGO TEST]: VALIDADOR (REGEX)");
-        comprobar("correo 'jcuzco@uce.edu.ec'", Validador.validarCorreo("jcuzco@uce.edu.ec"), true);
-        comprobar("correo 'sin-arroba'", Validador.validarCorreo("sin-arroba"), false);
-        comprobar("entero positivo '15'", Validador.validarEnteroPositivo("15"), true);
-        comprobar("entero positivo '1.5'", Validador.validarEnteroPositivo("1.5"), false);
-        comprobar("valoración '5'", Validador.validarValoracion("5"), true);
-        comprobar("valoración '6'", Validador.validarValoracion("6"), false);
-        comprobar("talla 'm'", Validador.validarTalla("m"), true);
-        comprobar("talla 'XXL'", Validador.validarTalla("XXL"), false);
-        comprobar("ocasión 'Oficina'", Validador.validarOcasion("Oficina"), true);
-        comprobar("clima 'frio'", Validador.validarClimaIdeal("frio"), true);
-        comprobar("fecha '25/12/2026 18:30'", Validador.validarFechaHora("25/12/2026 18:30"), true);
-        comprobar("fecha '07:00'", Validador.validarFechaHora("07:00"), true);
-        comprobar("fecha '32/13/2026 25:61'", Validador.validarFechaHora("32/13/2026 25:61"), false);
-        comprobar("contraseña 'ab c'", Validador.validarContrasenia("ab c"), false);
-        comprobar("uri 'fotos/a.webp'", Validador.validarUriImagen("fotos/a.webp"), true);
-        comprobar("uri 'a.pdf'", Validador.validarUriImagen("a.pdf"), false);
-        System.out.println("Formato extraído de 'x/y/Foto.JPEG': " + Validador.extraerFormatoImagen("x/y/Foto.JPEG"));
-        comprobar("contienePatron('Camisa','^cam')", Validador.contienePatron("Camisa", "^cam"), true);
-        comprobar("esRegexValido('[')", Validador.esRegexValido("["), false);
+    @Test
+    public void testValidarCaracteres() {
+        assertTrue(Validador.validarCaracteres("Pablo Canchignia"));
+        assertTrue(Validador.validarCaracteres("Áéíóú Ññ")); // Prueba de tildes
+        assertFalse(Validador.validarCaracteres("Juan123")); // No debe aceptar números
+        assertFalse(Validador.validarCaracteres("   "));     // No debe aceptar solo espacios
+        assertFalse(Validador.validarCaracteres(null));
+    }
+
+    // Tests de Números
+    @Test
+    public void testValidarNumeros() {
+        assertTrue(Validador.validarNumeros("123"));
+        assertTrue(Validador.validarNumeros("-15.5")); // Acepta negativos y decimales
+        assertFalse(Validador.validarNumeros("abc"));
+    }
+
+    @Test
+    public void testValidarEnteroPositivo() {
+        assertTrue(Validador.validarEnteroPositivo("15"));
+        assertFalse(Validador.validarEnteroPositivo("1.5"));
+        assertFalse(Validador.validarEnteroPositivo("-5"));
+    }
+
+    @Test
+    public void testValidarValoracion() {
+        assertTrue(Validador.validarValoracion("5"));
+        assertTrue(Validador.validarValoracion("1"));
+        assertFalse(Validador.validarValoracion("6"));
+        assertFalse(Validador.validarValoracion("0"));
+    }
+
+    // Tests de Catálogos (Talla, Estilo, Ocasión, Clima)
+    @Test
+    public void testValidarTalla() {
+        assertTrue(Validador.validarTalla("m")); // CASE_INSENSITIVE
+        assertTrue(Validador.validarTalla("XL"));
+        assertFalse(Validador.validarTalla("XXL"));
+    }
+
+    @Test
+    public void testValidarEstilo() {
+        assertTrue(Validador.validarEstilo("Casual"));
+        assertTrue(Validador.validarEstilo("formal"));
+        assertFalse(Validador.validarEstilo("Deportivo"));
+    }
+
+    @Test
+    public void testValidarOcasion() {
+        assertTrue(Validador.validarOcasion("Oficina"));
+        assertTrue(Validador.validarOcasion("deporte"));
+        assertFalse(Validador.validarOcasion("Fiesta"));
+    }
+
+    @Test
+    public void testValidarClimaIdeal() {
+        assertTrue(Validador.validarClimaIdeal("frío")); // Acepta tildes
+        assertTrue(Validador.validarClimaIdeal("Templado"));
+        assertFalse(Validador.validarClimaIdeal("Nieve"));
+    }
+
+    // Tests de Fechas y Contraseñas
+    @Test
+    public void testValidarFechaHora() {
+        assertTrue(Validador.validarFechaHora("25/12/2026 18:30"));
+        assertTrue(Validador.validarFechaHora("07:00"));
+        assertFalse(Validador.validarFechaHora("32/13/2026 25:61"));
+    }
+
+    @Test
+    public void testValidarContrasenia() {
+        assertTrue(Validador.validarContrasenia("secreta123"));
+        assertFalse(Validador.validarContrasenia("123")); // Menos de 4 caracteres
+        assertFalse(Validador.validarContrasenia("ab c")); // Contiene un espacio
+    }
+
+    // Tests de Imágenes y Expresiones Regulares
+    @Test
+    public void testValidarFormatoImagen() {
+        assertTrue(Validador.validarFormatoImagen("jpg"));
+        assertTrue(Validador.validarFormatoImagen("WEBP"));
+        assertFalse(Validador.validarFormatoImagen("pdf"));
+    }
+
+    @Test
+    public void testValidarUriImagen() {
+        assertTrue(Validador.validarUriImagen("fotos/a.webp"));
+        assertFalse(Validador.validarUriImagen("a.pdf"));
+    }
+
+    @Test
+    public void testExtraerFormatoImagen() {
+        assertEquals("jpeg", Validador.extraerFormatoImagen("x/y/Foto.JPEG")); // Lo convierte a minúscula
+        assertNull(Validador.extraerFormatoImagen("documento.pdf"));
+        assertNull(Validador.extraerFormatoImagen(null));
+    }
+
+    @Test
+    public void testContienePatron() {
+        assertTrue(Validador.contienePatron("Camisa", "^cam"));
+        assertFalse(Validador.contienePatron("Pantalón", "^cam"));
+        assertFalse(Validador.contienePatron("Camisa", "[")); // Atrapa PatternSyntaxException y devuelve false
+        assertFalse(Validador.contienePatron(null, "^cam"));
+    }
+
+    @Test
+    public void testEsRegexValido() {
+        assertTrue(Validador.esRegexValido("^[a-z]+$"));
+        assertFalse(Validador.esRegexValido("["));
+        assertFalse(Validador.esRegexValido(null));
+        assertFalse(Validador.esRegexValido(""));
     }
 }

@@ -23,23 +23,39 @@ public class Armario implements Serializable {
         this.totalPrendas = 0;
     }
 
-    public int getIdArmario() { return idArmario; }
-    public void setIdArmario(int idArmario) { this.idArmario = idArmario; }
-
-    public String getNombreArmario() { return nombreArmario; }
-    public void setNombreArmario(String nombreArmario) {
-        if (Validador.validarCaracteres(nombreArmario)) this.nombreArmario = nombreArmario;
+    //GETTERS Y SETTERS
+    public int getIdArmario() {
+        return idArmario;
+    }
+    public void setIdArmario(int idArmario) {
+        this.idArmario = idArmario;
     }
 
-    public int getTotalPrendas() { return totalPrendas; }
-    public void setTotalPrendas(int totalPrendas) { this.totalPrendas = totalPrendas; }
+    public String getNombreArmario() {
+        return nombreArmario;
+    }
+    public void setNombreArmario(String nombreArmario) {
+        if (Validador.validarCaracteres(nombreArmario)) {
+            this.nombreArmario = nombreArmario;
+        }
+    }
 
-    public List<Prenda> getPrendas() { return prendas; }
+    public int getTotalPrendas() {
+        return totalPrendas;
+    }
+    public void setTotalPrendas(int totalPrendas) {
+        this.totalPrendas = totalPrendas;
+    }
+
+    public List<Prenda> getPrendas() {
+        return prendas;
+    }
     public void setPrendas(List<Prenda> prendas) {
         this.prendas = prendas;
         this.totalPrendas = prendas.size();
     }
 
+    //METODOS
     public void agregarPrenda(Prenda prenda) {
         prendas.add(prenda);
         totalPrendas = prendas.size();
@@ -51,7 +67,9 @@ public class Armario implements Serializable {
         return eliminada;
     }
 
-    public boolean estaVacio() { return prendas.isEmpty(); }
+    public boolean estaVacio() {
+        return prendas.isEmpty();
+    }
 
     /** Busca prendas cuyo nombre o color contenga el patrón (regex) indicado, usando Pattern/Matcher. */
     public List<Prenda> buscarPrendasPorPatron(String regex) {

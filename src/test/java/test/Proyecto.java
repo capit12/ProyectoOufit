@@ -4,25 +4,15 @@ import consola.Menu;
 
 public class Proyecto {
     public static void main(String[] args) {
-        System.out.println(" UNIVERSIDAD CENTRAL DEL ECUADOR ");
+        System.out.println("=========================================");
+        System.out.println("     UNIVERSIDAD CENTRAL DEL ECUADOR     ");
+        System.out.println("      PROYECTO: ASISTENTE DE OUTFITS     ");
+        System.out.println("=========================================");
 
-        System.out.println("[SISTEMA TEST]: EJECUTANDO BANCO DE PRUEBAS UNITARIAS");
+        // Nota: Las pruebas unitarias ahora se ejecutan directamente
+        // desde el IDE (JUnit 5) y ya no necesitan ser llamadas aquí.
 
-        new test.TestUsuario().probarClase();
-        new test.TestPerfilUsuario().probarClase();
-        new test.TestPrenda().probarClase();
-        new test.TestActividad().probarClase();
-        new test.TestOutfit().probarClase();
-        new test.TestClima().probarClase();
-        new test.TestClasificacionPrenda().probarClase();
-        new test.TestFotoPrenda().probarClase();
-        new test.TestArmario().probarClase();
-        new test.TestValidador().probarClase();
-
-        System.out.println("[SISTEMA TEST]: TODAS LAS ENTIDADES COMPROBADAS");
-
-
-        System.out.println("Desplegando menús estructurados según Casos de Uso");
+        System.out.println("\nDesplegando menús estructurados según Casos de Uso...");
         Menu menuConsola = new Menu();
         menuConsola.mostrarMenuPrincipal();
     }

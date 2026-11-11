@@ -24,11 +24,17 @@ public class FotoPrenda implements Serializable {
         this.formato = "jpg";
         setUriImagen(uriImagen);
     }
+    //GETTERS Y SETTERS
+    public int getIdFoto() {
+        return idFoto;
+    }
+    public void setIdFoto(int idFoto) {
+        this.idFoto = idFoto;
+    }
 
-    public int getIdFoto() { return idFoto; }
-    public void setIdFoto(int idFoto) { this.idFoto = idFoto; }
-
-    public String getUriImagen() { return uriImagen; }
+    public String getUriImagen() {
+        return uriImagen;
+    }
     /** Acepta solo URIs terminadas en jpg/jpeg/png/webp y actualiza el formato automáticamente. */
     public void setUriImagen(String uriImagen) {
         if (Validador.validarUriImagen(uriImagen)) {
@@ -37,11 +43,19 @@ public class FotoPrenda implements Serializable {
         }
     }
 
-    public String getFormato() { return formato; }
+    public String getFormato() {
+        return formato;
+    }
     public void setFormato(String formato) {
-        if (Validador.validarFormatoImagen(formato)) this.formato = formato.toLowerCase();
+        if (Validador.validarFormatoImagen(formato)) {
+            this.formato = formato.toLowerCase();
+        }
     }
 
-    public boolean isFondoEliminado() { return fondoEliminado; }
-    public void setFondoEliminado(boolean fondoEliminado) { this.fondoEliminado = fondoEliminado; }
+    public boolean isFondoEliminado() {
+        return fondoEliminado;
+    }
+    public void setFondoEliminado(boolean fondoEliminado) {
+        this.fondoEliminado = fondoEliminado;
+    }
 }
