@@ -107,4 +107,18 @@ public class Prenda implements Serializable {
     public void eliminarPrenda() {
         System.out.println("[RESULTADO]: Prenda removida permanentemente.");
     }
+
+    @Override
+    public String toString() {
+        return "Prenda{" +
+                "idPrenda=" + idPrenda +
+                ", nombre='" + nombre + '\'' +
+                ", color='" + color + '\'' +
+                ", disponibleLimpia=" + disponibleLimpia +
+                ", ocasionUso='" + ocasionUso + '\'' +
+                ", tipoClimaIdeal='" + tipoClimaIdeal + '\'' +
+                ", clasificacion=" + clasificacion +
+                ", foto=" + foto +
+                '}';
+    }
 }

@@ -79,4 +79,15 @@ public class Usuario {
     public void eliminarCuenta() {
         System.out.println("[RESULTADO]: Cuenta eliminada del sistema.");
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "idUsuario=" + idUsuario +
+                ", nombre='" + nombre + '\'' +
+                ", correo='" + correo + '\'' +
+                ", contrasenia='" + contrasenia + '\'' +
+                ", perfil=" + perfil +
+                '}';
+    }
 }

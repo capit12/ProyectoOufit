@@ -49,4 +49,13 @@ public class Outfit {
         this.valoracion = puntos;
         System.out.println("[RESULTADO]: Puntuación de " + puntos + " estrellas guardada.");
     }
+
+    @Override
+    public String toString() {
+        return "Outfit{" +
+                "idOutfit=" + idOutfit +
+                ", diaSemana='" + diaSemana + '\'' +
+                ", valoracion=" + valoracion +
+                '}';
+    }
 }

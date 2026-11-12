@@ -1,4 +1,4 @@
-package consola;
+package GUI;
 
 import dominio.*;
 import java.util.Scanner;

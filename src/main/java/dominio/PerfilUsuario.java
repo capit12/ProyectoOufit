@@ -64,4 +64,14 @@ public class PerfilUsuario {
     public void guardarPreferencias() {
         System.out.println("[RESULTADO]: Configuración de perfil guardada.");
     }
+
+    @Override
+    public String toString() {
+        return "PerfilUsuario{" +
+                "idPerfil=" + idPerfil +
+                ", estiloPreferido='" + estiloPreferido + '\'' +
+                ", talla='" + talla + '\'' +
+                ", ciudadUbicacion='" + ciudadUbicacion + '\'' +
+                '}';
+    }
 }

@@ -66,4 +66,14 @@ public class Actividad {
     public void eliminarActividad() {
         System.out.println("[RESULTADO]: Actividad removida de la agenda.");
     }
+
+    @Override
+    public String toString() {
+        return "Actividad{" +
+                "idActividad=" + idActividad +
+                ", nombreActividad='" + nombreActividad + '\'' +
+                ", fechaHora='" + fechaHora + '\'' +
+                ", tipoOcasion='" + tipoOcasion + '\'' +
+                '}';
+    }
 }

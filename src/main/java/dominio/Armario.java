@@ -81,4 +81,14 @@ public class Armario implements Serializable {
         }
         return encontradas;
     }
+
+    @Override
+    public String toString() {
+        return "Armario{" +
+                "idArmario=" + idArmario +
+                ", nombreArmario='" + nombreArmario + '\'' +
+                ", totalPrendas=" + totalPrendas +
+                ", prendas=" + prendas +
+                '}';
+    }
 }

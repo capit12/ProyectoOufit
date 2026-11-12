@@ -34,33 +34,57 @@ public class Validador {
         return matcher.matches();
     }
 
-    // ---------- Validaciones originales ----------
-    public static boolean validarCorreo(String correo) { return coincide(CORREO, correo); }
+    // ---------- Validaciones ----------
+    public static boolean validarCorreo(String correo) {
+        return coincide(CORREO, correo);
+    }
+
 
     public static boolean validarCaracteres(String texto) {
-        if (texto == null || texto.trim().isEmpty()) return false;
+        if (texto == null || texto.trim().isEmpty())
+            return false;
         return coincide(CARACTERES, texto);
     }
 
-    public static boolean validarNumeros(String numero) { return coincide(NUMEROS, numero); }
+    public static boolean validarNumeros(String numero) {
+        return coincide(NUMEROS, numero);
+    }
 
-    // ---------- Validaciones nuevas ----------
     /** Entero positivo de hasta 9 dígitos (ids). Evita NumberFormatException con "1.5" o "-3". */
-    public static boolean validarEnteroPositivo(String texto) { return coincide(ENTERO_POSITIVO, texto); }
+    public static boolean validarEnteroPositivo(String texto) {
+        return coincide(ENTERO_POSITIVO, texto);
+    }
 
     /** Valoración entera de 1 a 5. */
-    public static boolean validarValoracion(String texto) { return coincide(VALORACION, texto); }
+    public static boolean validarValoracion(String texto) {
+        return coincide(VALORACION, texto);
+    }
 
     /** Mínimo 4 caracteres y sin espacios. */
-    public static boolean validarContrasenia(String texto) { return coincide(CONTRASENIA, texto); }
+    public static boolean validarContrasenia(String texto) {
+        return coincide(CONTRASENIA, texto);
+    }
 
-    public static boolean validarTalla(String texto) { return coincide(TALLA, texto); }
-    public static boolean validarEstilo(String texto) { return coincide(ESTILO, texto); }
-    public static boolean validarOcasion(String texto) { return coincide(OCASION, texto); }
-    public static boolean validarClimaIdeal(String texto) { return coincide(CLIMA_IDEAL, texto); }
-    public static boolean validarFechaHora(String texto) { return coincide(FECHA_HORA, texto); }
-    public static boolean validarFormatoImagen(String texto) { return coincide(FORMATO_IMAGEN, texto); }
-    public static boolean validarUriImagen(String texto) { return coincide(URI_IMAGEN, texto); }
+    public static boolean validarTalla(String texto) {
+        return coincide(TALLA, texto);
+    }
+    public static boolean validarEstilo(String texto) {
+        return coincide(ESTILO, texto);
+    }
+    public static boolean validarOcasion(String texto) {
+        return coincide(OCASION, texto);
+    }
+    public static boolean validarClimaIdeal(String texto) {
+        return coincide(CLIMA_IDEAL, texto);
+    }
+    public static boolean validarFechaHora(String texto) {
+        return coincide(FECHA_HORA, texto);
+    }
+    public static boolean validarFormatoImagen(String texto) {
+        return coincide(FORMATO_IMAGEN, texto); }
+    public static boolean validarUriImagen(String texto) {
+        return coincide(URI_IMAGEN, texto);
+    }
 
     /** Extrae la extensión (en minúsculas) de una URI de imagen usando el grupo del Matcher; null si no es válida. */
     public static String extraerFormatoImagen(String uri) {
@@ -74,18 +98,23 @@ public class Validador {
      * Búsqueda sin distinguir mayúsculas; si el regex es inválido devuelve false.
      */
     public static boolean contienePatron(String texto, String regex) {
-        if (texto == null || regex == null) return false;
+        if (texto == null || regex == null) {
+            return false;
+        }
         try {
             Matcher matcher = Pattern.compile(regex, Pattern.CASE_INSENSITIVE).matcher(texto);
             return matcher.find();
         } catch (PatternSyntaxException e) {
             return false;
+
         }
     }
 
     /** true si el regex se puede compilar. */
     public static boolean esRegexValido(String regex) {
-        if (regex == null || regex.isEmpty()) return false;
+        if (regex == null || regex.isEmpty()) {
+            return false;
+        }
         try {
             Pattern.compile(regex);
             return true;

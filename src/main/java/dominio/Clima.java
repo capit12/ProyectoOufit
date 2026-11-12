@@ -55,4 +55,14 @@ public class Clima {
     public boolean verificarLluvia() {
         return probabilidadLluvia > 50.0;
     }
+
+    @Override
+    public String toString() {
+        return "Clima{" +
+                "idClima=" + idClima +
+                ", temperatura=" + temperatura +
+                ", probabilidadLluvia=" + probabilidadLluvia +
+                ", tipoClima='" + tipoClima + '\'' +
+                '}';
+    }
 }

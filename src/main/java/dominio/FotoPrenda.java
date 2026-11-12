@@ -58,4 +58,14 @@ public class FotoPrenda implements Serializable {
     public void setFondoEliminado(boolean fondoEliminado) {
         this.fondoEliminado = fondoEliminado;
     }
+
+    @Override
+    public String toString() {
+        return "FotoPrenda{" +
+                "idFoto=" + idFoto +
+                ", uriImagen='" + uriImagen + '\'' +
+                ", formato='" + formato + '\'' +
+                ", fondoEliminado=" + fondoEliminado +
+                '}';
+    }
 }
